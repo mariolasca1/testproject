@@ -1,0 +1,7 @@
+views.filter_value.myevent_filter:
+  type: mapping
+  label: 'Event status'
+  mapping:
+    state:
+      type: string
+      label: 'Event status'

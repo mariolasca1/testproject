@@ -1,0 +1,25 @@
+<?php
+
+function tags_views_filters_form_alter(&$form, &$form_state, $form_id) {
+
+    if (isset($form['#id']) && $form['#id'] == "views-exposed-form-test-sabana-page-1") {
+
+        $form['#attached']['library'][] = 'tags_views_filters/filter-checks-tags';
+        $form['#attributes']['class'][] = 'tags-filters';
+        
+        foreach ($form as $key => $value) {
+            if(is_array($value) && isset($value['#type']) ){
+                if($value['#type'] == 'select' && $value['#multiple']){
+                    $form[$key]['#type'] = 'checkboxes';
+                }
+            }
+        }
+    }
+}
+
+function tags_views_filters_preprocess_views_view(&$variables) {
+    
+   /* if ($variables['view']->id() == 'test_sabana') {
+      $variables['attributes']['class'][] = 'selected-tags';
+    }*/
+  }

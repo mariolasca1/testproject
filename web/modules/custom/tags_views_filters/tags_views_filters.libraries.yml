@@ -1,0 +1,5 @@
+filter-checks-tags:
+  js:
+    js/filter-checks-tags.js: {}
+  dependencies:
+    - core/drupal
